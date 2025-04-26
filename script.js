@@ -3,6 +3,8 @@
 // select elements
 const score0Elem = document.getElementById('score--0');
 const score1Elem = document.getElementById('score--1');
+const current0Elem = document.getElementById('current--0');
+const current1Elem = document.getElementById('current--1');
 const diceElem = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
@@ -12,6 +14,8 @@ const btnHold = document.querySelector('.btn--hold');
 score0Elem.textContent = 0;
 score1Elem.textContent = 0;
 diceElem.classList.add('hidden');
+
+let currentScore = 0;
 
 // rolling dice functionallity
 btnRoll.addEventListener('click', function () {
@@ -25,6 +29,8 @@ btnRoll.addEventListener('click', function () {
   // check for rolled 1
   if (dice !== 1) {
     // add dice to current score
+    currentScore += dice;
+    current0Elem.textContent = currentScore; // CHANGE LATER
   } else {
     // switch to next player
   }
