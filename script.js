@@ -46,3 +46,28 @@ btnRoll.addEventListener('click', function () {
     player1Elem.classList.toggle('player--active');
   }
 });
+
+// handle “Hold” click: add current score to active player's total, check win condition, and switch turns
+btnHold.addEventListener('click', function () {
+  // add current score to active player's score
+  scores[activePlayer] += currentScore;
+  document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+  // check if player's score is >= 100
+  if (scores[activePlayer] >= 50) {
+    // finish game
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.add('player--winner');
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--active');
+  } else {
+    // switch to next player
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    player0Elem.classList.toggle('player--active');
+    player1Elem.classList.toggle('player--active');
+  }
+});
