@@ -1,14 +1,3 @@
-Great question! A .gitignore file for a JavaScript project built in VS Code on a MacBook should ignore:
-Node dependencies
-VS Code config files
-Mac system files
-Log files
-Build/output directories
-Environment variables
-Optional tools like coverage/, .DS_Store, etc.
-
-✅ Here's a solid .gitignore template:
-————————————————————————-
 # Node modules
 node_modules/
 
